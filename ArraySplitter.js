@@ -5,11 +5,15 @@ const arraySplitter = (arr, n) => {
 	// Determine size of each "split"
 	const size = Math.ceil(arr.length / n);
 
-	// Create a new array to mutate
-	return Array.from({ length: n }, (v, i) =>
-		// map each element in new array into the "chunks" based on size
-		arr.slice(i * size, i * size + size)
-	);
+	if (arr.length > 0) {
+		// Create a new array to mutate
+		return Array.from({ length: n }, (v, i) =>
+			// map each element in new array into the "chunks" based on size
+			arr.slice(i * size, i * size + size)
+		);
+	} else {
+		return alert("Please add an array with at least 1 element.");
+	}
 };
 
 // Example data
@@ -40,3 +44,6 @@ console.log(
 	`The result of dividing ${exampleArrayOdd.length} by ${exampleSplit} is: `,
 	exampleFunctionOdd
 );
+
+// Test!!! Uncomment to see alert for no value
+// console.log(arraySplitter([], 2));
